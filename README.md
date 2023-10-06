@@ -1,5 +1,5 @@
 # user-authentication
-Created a User Sign Up and Login API using Node.js , Express and MongoDb
+Created a User Sign Up and Login API with option to update and delete user credentials using Node.js , Express and MongoDb
 
 #to run
 Install the following dependencies:
