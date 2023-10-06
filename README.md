@@ -12,7 +12,7 @@ Dev Dependencies:
 dotenv: 16.3.1
 
 Create a .env file and add:
-PORT=<insert PORT NO>
-DATABASE_URL=<DATABASE URL>
+PORT=PORT NO
+DATABASE_URL=DATABASE URL
 
 type npm run devStart to run the backend server.
