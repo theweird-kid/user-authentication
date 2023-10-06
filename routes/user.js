@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 
 //importing jsonwebtoken for authorisation
 const jwt = require('jsonwebtoken')
-const secretKey = 'afjn2421as'
+const secretKey = 'afjn2421as' //Add secret key as per your choice and keep it protected
 
 //importing User Schema from models
 const User = require('../models/user')
