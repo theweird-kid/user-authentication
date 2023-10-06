@@ -11,6 +11,18 @@ const secretKey = 'afjn2421as'
 //importing User Schema from models
 const User = require('../models/user')
 
+//get all users
+router.get('/', async (req, res, next) => {
+    try{
+        const users = await User.find()
+        res.json(users)
+        next()
+    } catch (err) {
+        res.status(500).json({error: err.message})
+    }
+})
+
+
 //Signup function
 router.post('/signup', async (req, res) => {
     try{
@@ -40,7 +52,7 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body
         //check if the user exists in database
-        const user = await user.findOne({ email })
+        const user = await User.findOne({ email })
         if(!user) {
             return res.status(401).json({message: 'Invalid Credentials'})
         } 
@@ -50,7 +62,8 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({message: 'Invalid Credentials'})
         }
         //generating a JWT for authorized user
-        const token = jwt.sign({ userId: uswer._id, email: user.email }, secretKey, {
+        console.log(user)
+        const token = jwt.sign({ userId: user._id, email: user.email }, secretKey, {
             expiresIn: '2h'
         })
         return res.status(200).json({ token })

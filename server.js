@@ -12,6 +12,7 @@ db.once('open', () => console.log('Connected to Database'))
 
 //parsing requests from client
 app.use(express.json())
+app.use(express.urlencoded({extended: false}))
 
 //routing requests to users
 const UserRouter = require('./routes/user')
